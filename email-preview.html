@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrBalcony Webinar Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #051c3e 0%, #0a2a5a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .email-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #051c3e 0%, #0a2a5a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .logo {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subject-badge {
+            background: #ff7b3d;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(255, 123, 61, 0.3);
+        }
+        
+        .content {
+            padding: 40px 30px;
+            color: #051c3e;
+            line-height: 1.7;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .main-text {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #ff7b3d;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-box h3 {
+            color: #051c3e;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .info-box p {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .next-steps {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #051c3e;
+        }
+        
+        .urgent-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 5px solid #f39c12;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer h4 {
+            color: #051c3e;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            color: #666;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        
+        .contact-info a {
+            color: #051c3e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight {
+            color: #ff7b3d;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #ff7b3d 0%, #e66a2a 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            margin: 10px 5px;
+            box-shadow: 0 4px 15px rgba(255, 123, 61, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 123, 61, 0.4);
+        }
+        
+        .secondary-button {
+            background: linear-gradient(135deg, #051c3e 0%, #0a2a5a 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 8px 5px;
+            box-shadow: 0 3px 10px rgba(5, 28, 62, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(5, 28, 62, 0.4);
+        }
+        
+        .button-group {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .helpful-links {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #ff7b3d;
+        }
+        
+        .helpful-links h3 {
+            color: #051c3e;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .link-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .link-item h4 {
+            color: #051c3e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .link-item p {
+            color: #666;
+            font-size: 12px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">DrBalcony</div>
+            <div class="tagline">Professional Property Inspections & Safety Compliance</div>
+            <div class="subject-badge">✓ Registration Confirmed</div>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">Hi George,</div>
+            
+            <div class="main-text">
+                Thanks for signing up for our <span class="highlight">DrBalcony Webinar</span> — your registration is confirmed.
+            </div>
+            
+            <div class="main-text">
+                We're excited to have you join us as we unpack the latest updates affecting <span class="highlight">California property owners</span>, including new safety requirements, inspection laws, HOA responsibilities, and compliance deadlines.
+            </div>
+            
+            <div class="info-box">
+                <h3>🎯 What to Expect</h3>
+                <p>Clear explanations of key state regulations</p>
+                <p>Practical insights for property owners and HOAs</p>
+                <p>Live Q&A with our engineering and compliance experts</p>
+            </div>
+            
+            <div class="info-box next-steps">
+                <h3>📋 Next Steps</h3>
+                <p>You'll receive your Zoom link and reminder emails before the session begins.</p>
+                <p>If you'd like to share property details or questions in advance, simply reply to this email.</p>
+            </div>
+            
+            <div class="info-box urgent-box">
+                <h3>🚨 Urgent?</h3>
+                <p>If you have visible damage, soft spots, or water intrusion, please reply with <strong>"Urgent"</strong> in the subject line and attach photos if possible.</p>
+            </div>
+            
+            <div class="button-group">
+                <a href="https://drbalcony.com/balcony-inspection-checklists/" class="cta-button" target="_blank">📋 Get Free Inspection Checklist</a>
+                <a href="https://drbalcony.com/contact" class="secondary-button" target="_blank">📞 Schedule Inspection</a>
+            </div>
+            
+            <div class="helpful-links">
+                <h3>🔗 Helpful Resources</h3>
+                <div class="link-grid">
+                    <a href="https://drbalcony.com/services/" class="link-item" target="_blank">
+                        <h4>🔍 Our Services</h4>
+                        <p>SB326, SB721 & EEE inspections</p>
+                    </a>
+                    <a href="https://drbalcony.com/balcony-inspection-cost-calculator/" class="link-item" target="_blank">
+                        <h4>💰 Cost Calculator</h4>
+                        <p>Get instant inspection quotes</p>
+                    </a>
+                    <a href="https://drbalcony.com/contact" class="link-item" target="_blank">
+                        <h4>📞 Contact Us</h4>
+                        <p>Get a free consultation</p>
+                    </a>
+                    <a href="https://drbalcony.com" class="link-item" target="_blank">
+                        <h4>🏠 DrBalcony Homepage</h4>
+                        <p>Learn more about our company</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h4>See you soon,</h4>
+            <div style="font-size: 20px; color: #051c3e; font-weight: 600; margin: 10px 0;">The DrBalcony Team</div>
+            <div class="contact-info">
+                <a href="https://drbalcony.com">DrBalcony.com</a> | (805) 312-8508
+            </div>
+        </div>
+    </div>
+</body>
+</html>
